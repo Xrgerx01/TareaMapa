@@ -1,25 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TareaMapa" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cpa-ME-8Ha">
+                                <rect key="frame" x="-4" y="20" width="383" height="647"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJo-77-g6O">
+                                <rect key="frame" x="20" y="606" width="50" height="30"/>
+                                <state key="normal" title="Normal"/>
+                                <connections>
+                                    <action selector="mapaNormal" destination="BYZ-38-t0r" eventType="touchUpInside" id="DPz-Xp-na1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QpU-p2-JDR">
+                                <rect key="frame" x="160" y="606" width="55" height="30"/>
+                                <state key="normal" title="Satelital"/>
+                                <connections>
+                                    <action selector="mapaSatelital" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ej7-c0-KKU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSs-pj-h0H">
+                                <rect key="frame" x="304" y="606" width="51" height="30"/>
+                                <state key="normal" title="Hibrido"/>
+                                <connections>
+                                    <action selector="mapaHibrido" destination="BYZ-38-t0r" eventType="touchUpInside" id="hRH-JV-b0C"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LSs-pj-h0H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="287.5" id="0HC-dH-TXV"/>
+                            <constraint firstItem="LSs-pj-h0H" firstAttribute="leading" secondItem="QpU-p2-JDR" secondAttribute="trailing" constant="89" id="1GB-8j-wTH"/>
+                            <constraint firstItem="YJo-77-g6O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-142.5" id="Not-rV-qmf"/>
+                            <constraint firstItem="Cpa-ME-8Ha" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="PyL-6q-QUh"/>
+                            <constraint firstItem="Cpa-ME-8Ha" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="10" id="Rvx-4l-JDW"/>
+                            <constraint firstItem="QpU-p2-JDR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UbW-ZC-DLK"/>
+                            <constraint firstItem="QpU-p2-JDR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="287.5" id="YeA-PQ-462"/>
+                            <constraint firstItem="YJo-77-g6O" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="287.5" id="awW-5v-cRQ"/>
+                            <constraint firstItem="Cpa-ME-8Ha" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bJp-5P-hPv"/>
+                            <constraint firstItem="Cpa-ME-8Ha" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nkk-xI-EI1"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapa" destination="Cpa-ME-8Ha" id="63p-y2-hJL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="259.5" y="291.5"/>
         </scene>
     </scenes>
 </document>
