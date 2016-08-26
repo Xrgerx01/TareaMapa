@@ -15,6 +15,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapa: MKMapView!
     private let manejador = CLLocationManager()
     private var distanciaRecorrida: Double = 0.0
+    private var localizacionActual = CLLocationCoordinate2D()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +25,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         manejador.requestWhenInUseAuthorization()
         manejador.distanceFilter = 50.0
         mapa.zoomEnabled = true
+        mapa.setCenterCoordinate(localizacionActual, animated: true)
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
         if status == .AuthorizedWhenInUse {
             manejador.startUpdatingLocation()
             mapa.showsUserLocation = true
-            //mapa.centerCoordinate
         } else {
             manejador.stopUpdatingLocation()
             mapa.showsUserLocation = false
